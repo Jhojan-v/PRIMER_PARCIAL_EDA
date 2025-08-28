@@ -50,3 +50,13 @@ div{
 .opciones {
     border-color: transparent;
 }
+
+#votacion {
+    display: flex;
+    justify-content: center;
+}
+
+#porcentajes {
+    display: flex;
+    justify-content: center;
+}
