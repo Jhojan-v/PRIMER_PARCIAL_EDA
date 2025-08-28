@@ -9,23 +9,26 @@
 </head>
 <body>
     <main>
-        <div class="elEstilo">
-            <h1>ENCUESTA SOBRE TU LENGUAJE DE PROGRAMACION PREFERIDO!</h1>
-            <!– la informacion se codificarán en tuplas clave=valor separadas por '&' –>
-        </div>
-        <div>
-           <p id="encabezado"> CUAL ES TU LENGUAJE DE PROGRAMACIÓN FAVORITO?
-            
-            <div class="opciones">
-                <input type="radio"  value="" name="accion">JavaScript</td>
-                <input type="radio"  value="" name="accion">Python</td>
-                <input type="radio"  value="" name="accion">C++</td>
-                <input type="radio"  value="" name="accion">OTRO</td>
+        <h1>Encuesta: ¿Cuál es tu lenguaje de programación favorito?</h1>
+
+        <form id="generarTransaccion">
+            <div>
+                <input type="radio" id="js" name="accion" value="JavaScript" required>
+                <label for="js">JavaScript</label><br>
+
+                <input type="radio" id="py" name="accion" value="Python">
+                <label for="py">Python</label><br>
+
+                <input type="radio" id="cpp" name="accion" value="C++">
+                <label for="cpp">C++</label><br>
+
+                <input type="radio" id="otro" name="accion" value="Otro">
+                <label for="otro">Otro</label>
             </div>
-        </p>
-        </div>
-            
-      
+
+            <button type="submit">Votar</button>
+        </form>
+
         <h2>Resultados</h2>
         <table border="1" id="resultados">
             <tr><th>Opción</th><th>Votos</th><th>Porcentaje</th></tr>
@@ -34,10 +37,8 @@
             <tr><td>C++</td><td id="votos-cpp">0</td><td id="porcentaje-cpp">0%</td></tr>
             <tr><td>Otro</td><td id="votos-otro">0</td><td id="porcentaje-otro">0%</td></tr>
         </table>
-
-        </div>
-
     </main>
+
     <footer> 
         <hr>    
         ENTREGABLE PRIMER CORTE
