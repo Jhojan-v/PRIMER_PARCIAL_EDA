@@ -23,7 +23,7 @@ formElement.addEventListener('submit',(event) =>{
         }
     }
     
-    let transaction = { peso, estatura, accion };
+    let transaction = {accion };
     let transactionJson = JSON.stringify(transaction);
     console.log(transactionJson);
     fetch('http://localhost:3000/transactions',
