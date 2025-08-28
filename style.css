@@ -45,6 +45,8 @@ div{
     border-radius: 45px; 
     border-style: dashed;
     border-color: rgb(10, 7, 82);
+    padding: 12px ;
+    margin-left : 12 px ;
 }
 
 .opciones {
