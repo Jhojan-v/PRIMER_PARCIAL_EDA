@@ -10,28 +10,49 @@
 
 const formElement = document.getElementById("generarTransaccion");
 
-formElement.addEventListener('submit',(event) =>{
-    // para que no se recarge la pagina
+let votos = {
+    "JavaScript": 0,
+    "Python": 0,
+    "C++": 0,
+    "Otro": 0
+};
+
+formElement.addEventListener('submit', (event) => {
     event.preventDefault();
-    // por ser un radio button
-    let lasAcciones = document.getElementsByName("accion");
-    let accion;
-    for(let i=0; i<lasAcciones.length; i++){
-        if (lasAcciones[i].checked){
-            accion = lasAcciones[i].value;
-            break;
+
+    let seleccion = document.querySelector('input[name="accion"]:checked');
+    if (!seleccion) return;
+
+    let opcion = seleccion.value;
+    votos[opcion]++;
+
+    actualizarResultados();
+
+    // Deshabilitar formulario para que no vuelva a votar
+    let radios = document.querySelectorAll('input[name="accion"]');
+    radios.forEach(r => r.disabled = true);
+    event.target.querySelector('button[type="submit"]').disabled = true;
+});
+
+function actualizarResultados() {
+    let total = Object.values(votos).reduce((a, b) => a + b, 0);
+
+    for (let opcion in votos) {
+        let votosOpcion = votos[opcion];
+        let porcentaje = total > 0 ? ((votosOpcion / total) * 100).toFixed(1) : 0;
+
+        if (opcion === "JavaScript") {
+            document.getElementById("votos-js").innerText = votosOpcion;
+            document.getElementById("porcentaje-js").innerText = porcentaje + "%";
+        } else if (opcion === "Python") {
+            document.getElementById("votos-py").innerText = votosOpcion;
+            document.getElementById("porcentaje-py").innerText = porcentaje + "%";
+        } else if (opcion === "C++") {
+            document.getElementById("votos-cpp").innerText = votosOpcion;
+            document.getElementById("porcentaje-cpp").innerText = porcentaje + "%";
+        } else if (opcion === "Otro") {
+            document.getElementById("votos-otro").innerText = votosOpcion;
+            document.getElementById("porcentaje-otro").innerText = porcentaje + "%";
         }
     }
-    
-    let transaction = {accion };
-    let transactionJson = JSON.stringify(transaction);
-    console.log(transactionJson);
-    fetch('http://localhost:3000/transactions',
-    {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'            
-          },
-        body: transactionJson
-    })    
-})
+}

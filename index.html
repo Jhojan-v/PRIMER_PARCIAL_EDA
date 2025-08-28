@@ -25,25 +25,15 @@
         </p>
         </div>
             
-        <div id="votacion"> 
-            <td colspan="2"><input type="submit"  value="VOTAR"></td>
-            
-        </div>
-
-        <div class="porcentajes">
-            <section>
-            <label for="file">JavaScript</label>
-            <progress id="Python" max="100" value="70">70%</progress>
-
-            <label for="file">Python</label>
-            <progress id="Python" max="100" value="70">70%</progress>
-            </section>
-
-            <label for="file">C++</label>
-            <progress id="Python" max="100" value="70">70%</progress>
-
-            <label for="file">OTRO</label>
-            <progress id="Python" max="100" value="70">70%</progress>
+      
+        <h2>Resultados</h2>
+        <table border="1" id="resultados">
+            <tr><th>Opción</th><th>Votos</th><th>Porcentaje</th></tr>
+            <tr><td>JavaScript</td><td id="votos-js">0</td><td id="porcentaje-js">0%</td></tr>
+            <tr><td>Python</td><td id="votos-py">0</td><td id="porcentaje-py">0%</td></tr>
+            <tr><td>C++</td><td id="votos-cpp">0</td><td id="porcentaje-cpp">0%</td></tr>
+            <tr><td>Otro</td><td id="votos-otro">0</td><td id="porcentaje-otro">0%</td></tr>
+        </table>
 
         </div>
 
